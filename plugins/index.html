@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101418">
+  <meta name="description" content="Find, download, and install plugins for Shumi TUI.">
+  <title>Plugins — Shumi</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../styles.css">
+  <script src="catalog.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a class="wordmark" href="../" aria-label="Shumi home"><span class="wordmark-icon" aria-hidden="true">▦</span> shumi<span class="cursor" aria-hidden="true">_</span></a>
+      <nav aria-label="Main navigation">
+        <a href="../#demo">Demo</a>
+        <a href="../#workflow">Workflow</a>
+        <a href="./" aria-current="page">Plugins</a>
+        <a href="../#install">Install</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap plugins" id="main">
+    <header class="plugins-header">
+      <h1>Shumi plugins</h1>
+      <p>In Shumi TUI, press <kbd>L</kbd>, choose <strong>Manage plugins</strong>, then press <kbd>b</kbd> to browse. Select a plugin and press <kbd>Enter</kbd> to install it. Press <kbd>Esc</kbd> to return to Manage plugins and enable it.</p>
+    </header>
+
+    <div class="plugin-catalog">
+      <div class="plugin-search" role="search" aria-label="Plugin catalog" hidden>
+        <label for="plugin-query">Search plugins</label>
+        <input id="plugin-query" type="search" autocomplete="off" spellcheck="false" placeholder="Name, ID, or keyword" aria-controls="plugin-list">
+        <p class="plugin-results" id="plugin-results" role="status" aria-atomic="true"></p>
+      </div>
+      <ul class="plugin-list" id="plugin-list" aria-label="Available plugins" role="list">
+        <li class="plugin-card" data-plugin-id="session-shuffle">
+          <span class="plugin-icon" aria-hidden="true">[~]</span>
+          <div>
+            <h2>Session Shuffle</h2>
+            <p>Review a rotating queue of Codex and Claude Code sessions. Each card gives you 15 seconds to open the session or skip it.</p>
+            <div class="plugin-downloads">
+              <a class="button button-secondary" href="session-shuffle/session-shuffle-0.1.0-linux-x86_64.tar.gz" download data-api-version="1" data-min-shumi-version="0.1.0" data-sha256="7cb281b5e93c2d589eb1615ba7e10cb727f7fb888c360ae119d1fec9e2283dfa" aria-label="Download Session Shuffle for Linux x86_64">Linux x86_64</a>
+              <a href="session-shuffle/session-shuffle-0.1.0-source.tar.gz" download aria-label="Download Session Shuffle source">Source</a>
+            </div>
+          </div>
+        </li>
+        <li class="plugin-card" data-plugin-id="todays-focus" data-plugin-alias="Time Allocation">
+          <span class="plugin-icon" aria-hidden="true">[=]</span>
+          <div>
+            <h2>Today’s Focus</h2>
+            <p>Divide your daily time across projects and work through a timed plan based on priorities, deadlines, and unfinished tasks.</p>
+            <div class="plugin-downloads">
+              <a class="button button-secondary" href="todays-focus/todays-focus-0.1.0-linux-x86_64.tar.gz" download data-api-version="1" data-min-shumi-version="0.1.0" data-sha256="1022b89c543e6da13f73d392c10c2b748105c854113465d727c8013cd81b4807" aria-label="Download Today’s Focus for Linux x86_64">Linux x86_64</a>
+              <a href="todays-focus/todays-focus-0.1.0-source.tar.gz" download aria-label="Download Today’s Focus source">Source</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="wordmark" href="../" aria-label="Shumi home"><span class="wordmark-icon" aria-hidden="true">▦</span> shumi<span class="cursor" aria-hidden="true">_</span></a>
+      <span>Open source · MIT</span>
+    </div>
+  </footer>
+</body>
+</html>

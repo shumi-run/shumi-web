@@ -46,7 +46,7 @@ body {
 button, a { -webkit-tap-highlight-color: transparent; }
 button { font: inherit; }
 a { color: inherit; }
-button:focus-visible, a:focus-visible, .terminal:focus-visible {
+button:focus-visible, a:focus-visible, input:focus-visible, .terminal:focus-visible {
   outline: 2px solid var(--mint);
   outline-offset: 3px;
 }
@@ -114,7 +114,7 @@ nav a {
   font: .875rem/1.2 var(--mono);
   text-decoration: none;
 }
-nav a:hover { color: var(--mint); }
+nav a:hover, nav a[aria-current="page"] { color: var(--mint); }
 
 .hero {
   display: grid;
@@ -354,13 +354,12 @@ kbd {
 .keyboard-hints { display: inline-flex; flex-wrap: wrap; align-items: center; gap: .3rem; }
 .noscript { padding: .6rem 1rem; color: var(--muted); }
 
-.details-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: clamp(2rem, 7vw, 7rem);
+.workflow {
+  max-width: 42rem;
   padding-block: clamp(3.25rem, 6.5vw, 5.75rem);
 }
-.details-grid h2 {
+.install { margin-bottom: clamp(2rem, 4.5vw, 4rem); }
+.workflow h2, .install h2 {
   margin-bottom: 1.2rem;
   font: 600 clamp(1.35rem, 3vw, 1.8rem)/1.2 var(--mono);
   letter-spacing: -.045em;
@@ -402,8 +401,73 @@ kbd {
 .command > span { color: var(--mint); font-family: var(--mono); }
 .command code { user-select: all; overflow-wrap: anywhere; }
 .command button { margin-left: auto; }
-.archive-install, .install-note { margin-top: .55rem; color: var(--muted); }
 #copy-feedback { color: var(--muted); }
+
+.plugins {
+  padding-block: clamp(2.5rem, 6vw, 5rem) clamp(3.25rem, 6.5vw, 5.75rem);
+}
+.plugins-header h1 {
+  margin-bottom: .65rem;
+  font-size: clamp(2rem, 5vw, 3.75rem);
+}
+.plugins-header p { max-width: 75ch; color: var(--muted); }
+.plugin-catalog { margin-top: clamp(1.5rem, 4vw, 3rem); }
+.plugin-search { max-width: 30rem; margin-bottom: .85rem; }
+.plugin-search label {
+  display: block;
+  margin-bottom: .45rem;
+  font: 600 .875rem/1.4 var(--mono);
+}
+.plugin-search input {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: .55rem .75rem;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: var(--panel);
+  color: var(--text);
+  font: 1rem/1.4 var(--mono);
+}
+.plugin-search input::placeholder { color: var(--muted); }
+.plugin-results { margin-top: .5rem; color: var(--muted); }
+.plugin-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.plugin-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: .85rem;
+  padding: clamp(.85rem, 2.2vw, 1.5rem);
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+.plugin-card > div { display: flex; flex-direction: column; }
+.plugin-icon {
+  align-self: start;
+  padding: .35rem;
+  border: 1px solid #3c5c54;
+  background: #172a23;
+  color: var(--mint);
+  font: 600 .875rem/1 var(--mono);
+}
+.plugin-card h2 { font: 600 1.05rem/1.4 var(--mono); }
+.plugin-card p { margin-top: .35rem; color: var(--muted); }
+.plugin-downloads {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem 1rem;
+  margin-top: auto;
+  padding-top: .9rem;
+  font: .875rem/1.4 var(--mono);
+}
+.plugin-downloads a:not(.button) { padding-block: .6rem; color: var(--mint); }
+
 .site-footer { border-top: 1px solid var(--line-soft); color: var(--muted); }
 .footer-inner { min-height: 4rem; font: .8125rem/1.3 var(--mono); }
 
@@ -448,13 +512,14 @@ dialog::backdrop { background: #080b0ccc; }
 }
 @media (max-width: 44rem) {
   .wrap { width: calc(100% - 2rem); }
-  .hero, .details-grid { grid-template-columns: minmax(0, 1fr); }
+  .hero, .plugin-list { grid-template-columns: minmax(0, 1fr); }
   .hero-art, .hero-break { display: none; }
   .list-row, .terminal-button { min-height: 2.75rem; }
   .filter-row { flex: 0 1 auto; }
 }
 @media (max-width: 24rem) {
   .header-inner { flex-wrap: wrap; padding-block: .65rem; gap: .2rem .65rem; }
+  nav { flex-wrap: wrap; }
   .hero-actions .button { padding-inline: .8rem; }
   .command { gap: .4rem; padding-inline: .4rem; }
   .command code { font-size: .9rem; }

@@ -18,6 +18,7 @@
       <nav aria-label="Main navigation">
         <a href="#demo">Demo</a>
         <a href="#workflow">Workflow</a>
+        <a href="plugins/">Plugins</a>
         <a href="#install">Install</a>
       </nav>
     </div>
@@ -40,6 +41,20 @@
             <i></i><i></i><i></i><i></i><i></i>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="install" id="install" aria-labelledby="install-title">
+      <h2 id="install-title">Install Shumi</h2>
+      <div class="install-panel">
+        <p class="platforms">Linux x86-64 (glibc 2.39 or newer)</p>
+        <div class="command">
+          <span aria-hidden="true">$</span>
+          <code id="install-command">curl -fsSL https://shumi.run/install.sh | sh</code>
+          <button class="terminal-button" id="copy-command" type="button" hidden>Copy</button>
+        </div>
+        <p class="sr-only" id="copy-feedback" role="status"></p>
+        <p>Run <code>shumi-tui</code> after installation. To update, run the installer again.</p>
       </div>
     </section>
 
@@ -95,41 +110,23 @@
       <noscript><p class="noscript">Enable JavaScript to browse the sample sessions.</p></noscript>
     </section>
 
-    <div class="details-grid">
-      <section class="workflow" id="workflow" aria-labelledby="workflow-title">
-        <h2 id="workflow-title">What Shumi does</h2>
-        <dl class="workflow-list">
-          <div>
-            <dt><span class="feature-icon" aria-hidden="true">⌘</span> Find sessions across hosts</dt>
-            <dd>Browse Codex and Claude Code conversations by project on your machine and configured SSH hosts.</dd>
-          </div>
-          <div>
-            <dt><span class="feature-icon" aria-hidden="true">!</span> Review work in the Attention Inbox</dt>
-            <dd>See sessions that need input, failed, or have unread results.</dd>
-          </div>
-          <div>
-            <dt><span class="feature-icon" aria-hidden="true">&gt;_</span> Resume in an embedded terminal</dt>
-            <dd>Open the selected agent from the dashboard and pick up in the session’s working directory.</dd>
-          </div>
-        </dl>
-      </section>
-
-      <section class="install" id="install" aria-labelledby="install-title">
-        <h2 id="install-title">Install Shumi</h2>
-        <div class="install-panel">
-          <p class="platforms">Linux <span aria-hidden="true">/</span> macOS</p>
-          <p>From a source checkout with Rust 1.88 or newer, run <code>cargo run --release</code>.</p>
-          <p class="archive-install">If you have a release archive, extract it and run this command from the extracted directory. Keep the executable and its sibling <code>plugins/</code> directory together.</p>
-          <div class="command">
-            <span aria-hidden="true">$</span>
-            <code id="install-command">./shumi-tui</code>
-            <button class="terminal-button" id="copy-command" type="button" hidden>Copy</button>
-          </div>
-          <p class="sr-only" id="copy-feedback" role="status"></p>
-          <p class="install-note">Install and authenticate the CLI for each provider you want to resume. Remote hosts use OpenSSH.</p>
+    <section class="workflow" id="workflow" aria-labelledby="workflow-title">
+      <h2 id="workflow-title">What Shumi does</h2>
+      <dl class="workflow-list">
+        <div>
+          <dt><span class="feature-icon" aria-hidden="true">⌘</span> Find sessions across hosts</dt>
+          <dd>Browse Codex and Claude Code conversations by project on your machine and configured SSH hosts.</dd>
         </div>
-      </section>
-    </div>
+        <div>
+          <dt><span class="feature-icon" aria-hidden="true">!</span> Review work in the Attention Inbox</dt>
+          <dd>See sessions that need input, failed, or have unread results.</dd>
+        </div>
+        <div>
+          <dt><span class="feature-icon" aria-hidden="true">&gt;_</span> Resume in an embedded terminal</dt>
+          <dd>Open the selected agent from the dashboard and pick up in the session’s working directory.</dd>
+        </div>
+      </dl>
+    </section>
   </main>
 
   <footer class="site-footer">

@@ -1,0 +1,3 @@
+/releases/*.tar.gz
+/plugins/*/*.tar.gz
+/_site/
