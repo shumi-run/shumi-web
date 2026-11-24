@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101418">
+  <meta name="description" content="Shumi is a terminal dashboard for Codex and Claude Code sessions across local and SSH hosts.">
+  <title>Shumi — A terminal dashboard for Codex, Claude Code and More</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+  <script src="demo.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a class="wordmark" href="#top" aria-label="Shumi home"><span class="wordmark-icon" aria-hidden="true">▦</span> shumi<span class="cursor" aria-hidden="true">_</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#demo">Demo</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#install">Install</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span aria-hidden="true">$</span> shumi-tui</p>
+        <h1 id="hero-title">A terminal dashboard<br class="hero-break"> for <em>Codex</em> and <em>Claude Code<span class="hero-period">.</span></em></h1>
+        <p class="intro">Browse projects, review conversations, and resume sessions across your machine and SSH hosts.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#demo">Try the demo</a>
+          <a class="button button-secondary" href="#install">Install Shumi</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-frame">
+          <div class="pixel-mark">
+            <i></i><i></i><i></i><i></i><i></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="terminal" id="demo" aria-labelledby="demo-title" tabindex="-1">
+      <header class="terminal-bar">
+        <div class="terminal-title">
+          <span class="terminal-icon" aria-hidden="true">&gt;_</span>
+          <h2 id="demo-title">Shumi <span>/</span> Interactive demo</h2>
+        </div>
+        <div class="terminal-actions" id="demo-actions" hidden>
+          <button class="terminal-button" type="button" id="open-inbox"><kbd>I</kbd> Inbox</button>
+          <button class="terminal-button" type="button" id="open-help"><kbd>?</kbd> Help</button>
+        </div>
+      </header>
+
+      <div class="terminal-body">
+        <section class="pane hosts-pane" aria-labelledby="hosts-heading">
+          <h3 id="hosts-heading">Hosts / projects</h3>
+          <div id="host-list">
+            <p class="placeholder-row">All hosts</p>
+            <p class="placeholder-row">Local / shumi-web</p>
+            <p class="placeholder-row">Build server / release-tools</p>
+          </div>
+        </section>
+        <section class="pane sessions-pane" aria-labelledby="sessions-heading">
+          <h3 id="sessions-heading">Sessions <span id="session-count"></span></h3>
+          <div id="session-list">
+            <p class="placeholder-row">Fix search tests <span class="status status-working">Working</span></p>
+            <p class="placeholder-row">Review release <span class="status status-input">Needs input</span></p>
+            <p class="placeholder-row">Update install docs <span class="status status-unread">Unread</span></p>
+            <p class="placeholder-row">Check archive contents <span class="status">Ready</span></p>
+          </div>
+        </section>
+        <section class="pane conversation-pane" aria-labelledby="conversation-heading">
+          <h3 id="conversation-heading">Conversation</h3>
+          <div id="conversation" aria-live="polite" aria-atomic="true">
+            <div class="conversation-header">
+              <h4>Fix search tests</h4>
+              <p>Local / shumi-web · main</p>
+            </div>
+            <div class="messages">
+              <div class="message"><p class="message-author">You</p><p>Add a regression test for search when a project has no sessions.</p></div>
+              <div class="message"><p class="message-author">Codex</p><p>I reproduced the empty-project case. I’m adding a regression test for the empty result view.</p></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="terminal-footer">
+        <span class="sample-label">Sample sessions</span>
+        <span class="keyboard-hints" id="keyboard-hints" hidden><kbd>Tab</kbd> focus <span aria-hidden="true">·</span> <kbd>↑ ↓</kbd> select <span aria-hidden="true">·</span> <kbd>?</kbd> help</span>
+      </footer>
+      <noscript><p class="noscript">Enable JavaScript to browse the sample sessions.</p></noscript>
+    </section>
+
+    <div class="details-grid">
+      <section class="workflow" id="workflow" aria-labelledby="workflow-title">
+        <h2 id="workflow-title">What Shumi does</h2>
+        <dl class="workflow-list">
+          <div>
+            <dt><span class="feature-icon" aria-hidden="true">⌘</span> Find sessions across hosts</dt>
+            <dd>Browse Codex and Claude Code conversations by project on your machine and configured SSH hosts.</dd>
+          </div>
+          <div>
+            <dt><span class="feature-icon" aria-hidden="true">!</span> Review work in the Attention Inbox</dt>
+            <dd>See sessions that need input, failed, or have unread results.</dd>
+          </div>
+          <div>
+            <dt><span class="feature-icon" aria-hidden="true">&gt;_</span> Resume in an embedded terminal</dt>
+            <dd>Open the selected agent from the dashboard and pick up in the session’s working directory.</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="install" id="install" aria-labelledby="install-title">
+        <h2 id="install-title">Install Shumi</h2>
+        <div class="install-panel">
+          <p class="platforms">Linux <span aria-hidden="true">/</span> macOS</p>
+          <p>From a source checkout with Rust 1.88 or newer, run <code>cargo run --release</code>.</p>
+          <p class="archive-install">If you have a release archive, extract it and run this command from the extracted directory. Keep the executable and its sibling <code>plugins/</code> directory together.</p>
+          <div class="command">
+            <span aria-hidden="true">$</span>
+            <code id="install-command">./shumi-tui</code>
+            <button class="terminal-button" id="copy-command" type="button" hidden>Copy</button>
+          </div>
+          <p class="sr-only" id="copy-feedback" role="status"></p>
+          <p class="install-note">Install and authenticate the CLI for each provider you want to resume. Remote hosts use OpenSSH.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a class="wordmark" href="#top" aria-label="Shumi home"><span class="wordmark-icon" aria-hidden="true">▦</span> shumi<span class="cursor" aria-hidden="true">_</span></a>
+      <span>Open source · MIT</span>
+    </div>
+  </footer>
+
+  <dialog id="inbox-dialog" aria-labelledby="inbox-title">
+    <div class="dialog-header">
+      <h2 id="inbox-title">Attention Inbox</h2>
+      <form method="dialog"><button class="terminal-button" type="submit" autofocus>Close</button></form>
+    </div>
+    <p class="dialog-description">Sample sessions awaiting input or review.</p>
+    <div id="inbox-list"></div>
+  </dialog>
+
+  <dialog id="help-dialog" aria-labelledby="help-title">
+    <div class="dialog-header">
+      <h2 id="help-title">Keyboard shortcuts</h2>
+      <form method="dialog"><button class="terminal-button" type="submit" autofocus>Close</button></form>
+    </div>
+    <dl class="shortcut-list">
+      <div><dt><kbd>Tab</kbd></dt><dd>Move focus between controls</dd></div>
+      <div><dt><kbd>↑</kbd> <kbd>↓</kbd> / <kbd>k</kbd> <kbd>j</kbd></dt><dd>Move through a list</dd></div>
+      <div><dt><kbd>Enter</kbd> / <kbd>Space</kbd></dt><dd>Activate a focused control</dd></div>
+      <div><dt><kbd>I</kbd></dt><dd>Open the Attention Inbox</dd></div>
+      <div><dt><kbd>?</kbd></dt><dd>Open keyboard shortcuts</dd></div>
+      <div><dt><kbd>Esc</kbd></dt><dd>Close the dialog</dd></div>
+    </dl>
+  </dialog>
+</body>
+</html>
